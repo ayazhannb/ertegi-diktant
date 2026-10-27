@@ -9,6 +9,7 @@
     "start": "node server/src/index.js",
     "dev:server": "node --watch server/src/index.js",
     "dev:client": "npm run dev --prefix client",
+    "dev": "node tools/dev.mjs",
     "seed": "node server/src/seed-cli.js",
     "test:api": "node tools/api-test.mjs"
   }

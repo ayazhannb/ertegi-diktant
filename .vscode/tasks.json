@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "▶ Dev (API + Vite, горячая перезагрузка)",
+      "type": "shell",
+      "command": "npm run dev",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "API на :4000, сайт на http://localhost:5173"
+    },
+    {
+      "label": "⚙️ Первый запуск: setup + build",
+      "type": "shell",
+      "command": "npm run setup && npm run build",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always" },
+      "detail": "Установка зависимостей и сборка фронтенда (нужно один раз)"
+    },
+    {
+      "label": "▶ Production (один порт 4000)",
+      "type": "shell",
+      "command": "npm start",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "Собранный сайт + API на http://localhost:4000"
+    }
+  ]
+}
