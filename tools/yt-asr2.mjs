@@ -1,0 +1,13 @@
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
+const id = process.argv[2];
+const r = await fetch(`https://www.youtube.com/watch?v=${id}&hl=tr&gl=TR`, { headers: { 'user-agent': UA, 'accept-language': 'tr;q=0.9' } });
+const html = await r.text();
+const m = html.match(/var ytInitialPlayerResponse = (\{.+?\});(?:var |<\/script>)/s);
+const pr = JSON.parse(m[1]);
+const t = (pr.captions?.playerCaptionsTracklistRenderer?.captionTracks || [])[0];
+console.log('baseUrl:', t.baseUrl);
+const cr = await fetch(t.baseUrl, { headers: { 'user-agent': UA, 'accept-language': 'tr;q=0.9' } });
+console.log('caption status:', cr.status);
+const xml = await cr.text();
+console.log('len:', xml.length);
+console.log(xml.slice(0, 800));

@@ -1,0 +1,15 @@
+{
+  "name": "ertegi-diktant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ертегі диктант — қазақша жазуды ертегі тыңдап үйренетін интерактивті веб-платформа",
+  "scripts": {
+    "setup": "npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "node server/src/index.js",
+    "dev:server": "node --watch server/src/index.js",
+    "dev:client": "npm run dev --prefix client",
+    "seed": "node server/src/seed-cli.js",
+    "test:api": "node tools/api-test.mjs"
+  }
+}

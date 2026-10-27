@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ertegi-diktant
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install --prefix server && npm install --prefix client && npm run build --prefix client
+    startCommand: node server/src/index.js
+    disk:
+      name: ertegi-data
+      sizeGB: 1
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATA_DIR
+        value: /opt/render/project/src/data
+      - key: NODE_VERSION
+        value: "24.1.0"
